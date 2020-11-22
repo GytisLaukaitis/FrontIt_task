@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+
 
 class ClientController extends Controller
 {
 
       /**
      * @SWG\Get(
-     *   path="/api/clients/{user}",
+     *   path="/api/clients",
      *   summary="Get Users",
      *   operationId="testing",
      *   @SWG\Response(response=200, description="successful operation"),
@@ -20,12 +19,11 @@ class ClientController extends Controller
      *   @SWG\Response(response=404, description="not found"),
      *   @SWG\Response(response=406, description="not acceptable"),
      *   @SWG\Response(response=500, description="internal server error"),
-     *   @SWG\Parameter(name="user", in="path", required=true, type="string"),
      * )
      */
 
     public function index() {
-        return response()->json(['clients' => Client::orderBy('id')->get()]);
+        return Client::orderBy('id')->get();
     }
 
 

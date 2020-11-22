@@ -15,18 +15,10 @@
         "https"
     ],
     "paths": {
-        "/api/clients/{user}": {
+        "/api/clients": {
             "get": {
                 "summary": "Get Users",
                 "operationId": "testing",
-                "parameters": [
-                    {
-                        "name": "user",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -44,9 +36,7 @@
                         "description": "internal server error"
                     }
                 }
-            }
-        },
-        "/api/clients": {
+            },
             "post": {
                 "summary": "Add User",
                 "operationId": "ApiV1saveUser",
