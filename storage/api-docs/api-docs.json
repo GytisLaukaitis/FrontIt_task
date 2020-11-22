@@ -15,13 +15,13 @@
         "https"
     ],
     "paths": {
-        "/api/clients/{mytest}": {
+        "/api/clients/{user}": {
             "get": {
                 "summary": "Get Users",
                 "operationId": "testing",
                 "parameters": [
                     {
-                        "name": "mytest",
+                        "name": "user",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -31,14 +31,17 @@
                     "200": {
                         "description": "successful operation"
                     },
+                    "403": {
+                        "description": "forbidden"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
                     "406": {
                         "description": "not acceptable"
                     },
                     "500": {
                         "description": "internal server error"
-                    },
-                    "412": {
-                        "description": "bbz"
                     }
                 }
             }
@@ -61,7 +64,7 @@
                         "type": "string"
                     },
                     {
-                        "name": "yob",
+                        "name": "yearOfBirth",
                         "in": "formData",
                         "required": true,
                         "type": "integer"

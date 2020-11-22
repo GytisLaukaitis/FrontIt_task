@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/clients/{mytest}','ClientController@index');
+Route::get('/clients/{user}','ClientController@index');
 Route::post('/clients','ClientController@store');
 
