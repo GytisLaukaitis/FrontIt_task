@@ -15,9 +15,9 @@
         "https"
     ],
     "paths": {
-        "/api/testing/{mytest}": {
+        "/api/clients/{mytest}": {
             "get": {
-                "summary": "Get Testing",
+                "summary": "Get Users",
                 "operationId": "testing",
                 "parameters": [
                     {
@@ -36,6 +36,43 @@
                     },
                     "500": {
                         "description": "internal server error"
+                    },
+                    "412": {
+                        "description": "bbz"
+                    }
+                }
+            }
+        },
+        "/api/clients": {
+            "post": {
+                "summary": "Add User",
+                "operationId": "ApiV1saveUser",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "surname",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "yob",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "204": {
+                        "description": "Created"
                     }
                 }
             }
