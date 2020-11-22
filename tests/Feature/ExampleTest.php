@@ -57,7 +57,7 @@ class UserEndpointTest extends TestCase
 
 
         $response = $this->json('POST', '/api/clients/',
-            ['name' => 'Sally', 'surname' => 'Mally', 'yob' => '2020']);
+            ['name' => 'Sally', 'surname' => 'Mally', 'yearOfBirth' => '2020-01-01']);
         $response->assertStatus(201);
     }
 

@@ -41,6 +41,8 @@ class ClientController extends Controller
      *      @SWG\Response(response=200, description="Success"),
      *      @SWG\Response(response=201, description="Created"),
      *      @SWG\Response(response=204, description="No Content"),
+     *      @SWG\Response(response=422, description="Unprocessable Entity"),
+     *      @SWG\Response(response=500, description="internal server error"),
      * )
      */
 

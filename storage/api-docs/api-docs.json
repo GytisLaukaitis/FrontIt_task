@@ -52,19 +52,19 @@
                 "operationId": "ApiV1saveUser",
                 "parameters": [
                     {
-                        "name": "Name",
+                        "name": "name",
                         "in": "formData",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "Surname",
+                        "name": "surname",
                         "in": "formData",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "Year of birth",
+                        "name": "yearOfBirth",
                         "in": "formData",
                         "required": true,
                         "type": "string"
@@ -79,6 +79,12 @@
                     },
                     "204": {
                         "description": "No Content"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "internal server error"
                     }
                 }
             }
