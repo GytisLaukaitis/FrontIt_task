@@ -15,7 +15,8 @@ L5_SWAGGER_CONST_HOST=localhost:8000
 6. In browser open localhost:8000/api/documentaion
 
 ## Docker Usage
-1. Coming soon...
+1. docker-compose up -d
+2. localhost:8000/api/documentaion
 
 
 ## License

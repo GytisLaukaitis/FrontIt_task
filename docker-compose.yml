@@ -6,14 +6,14 @@ services:
       dockerfile: .docker/Dockerfile
     image: 'laravelapp'
     ports:
-      - 8000:80
+      - 80:80
     volumes:
       - ./:/var/www/html
   db:
     image: mysql:5.7
     restart: always
     ports:
-      - "3302:3302"
+      - "3311:3311"
     environment:
       MYSQL_DATABASE: 'laraapp_db'
       MYSQL_ALLOW_EMPTY_PASSWORD: 1

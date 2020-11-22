@@ -20,24 +20,20 @@ class UserEndpointTest extends TestCase
 
 
     /**
-     * Given no params to /api/users all user are returned, with status code 200
+     * Given no params to /api/clients all clients are returned, with status code 200
      *
      * @return void
      */
-    public function test__get_all_users__given_no_params__returns_all_users()
+    public function test__get_all_clients__given_no_params__returns_all_client()
     {
-        // given -> susikuriame duomenis kuriu reikia
-
+        // given
         // when
+        $response = $this->get('/api/clients');
 
         // then
-
-        // teardown
-
-        $response = $this->get('/api/clients/a');
         $response->assertStatus(200);
-        $response->assertJson([[ "Jonaz", "Jonaitis" ],[ "Petras", "Petraitis" ]]);
-        // assert on body
+        $response->assertHeader('Content-Type', 'application/json'); // TODO :: pakeisti application/vnd.api+json
+        $response->assertJson([]);
     }
 
     /**
@@ -45,20 +41,37 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test__create_user__given_uname_pass_birthyear__creates_new_user_w_201()
+    public function test__create_user__given_uname_passw_birthyear__creates_new_user_w_201()
     {
-        // given -> susikuriame duomenis kuriu reikia
+        // given
+        $data = ['name' => 'Sally', 'surname' => 'Mallsy', 'yearOfBirth' => '2020-01-01'];
 
         // when
+        $response = $this->json('POST', '/api/clients/', $data);
 
         // then
+        $response->assertStatus(201);
+        $response->assertJson([]);
 
         // teardown
+        // TODO :: call delete on this resource (by id)
+    }
 
+    /**
+     * Given
+     *
+     * @return void
+     */
+    public function test__create_user__given_no_username__create_fails_w_status_422() {
+        // given
+        $data = ['surname' => 'Mally', 'yearOfBirth' => '2020-01-01'];
 
-        $response = $this->json('POST', '/api/clients/',
-            ['name' => 'Sally', 'surname' => 'Mally', 'yearOfBirth' => '2020-01-01']);
-        $response->assertStatus(201);
+        // when
+        $response = $this->json('POST', '/api/clients/', $data);
+
+        // then
+        $response->assertStatus(422);
+        $response->assertJson([]);
     }
 
     // TC: 400 kai neįveda name / surname / yob
