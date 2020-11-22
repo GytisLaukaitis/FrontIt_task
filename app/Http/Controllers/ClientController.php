@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
-      private $cust_arr = [["Jonas", "Jonaitis"], ["Petras", "Petraitis"]];
 
       /**
      * @SWG\Get(
@@ -24,14 +25,10 @@ class ClientController extends Controller
      */
 
     public function index() {
-        return response()->json(['clients' => Client::orderBy('name')->get()]);
+        return response()->json(['clients' => Client::orderBy('id')->get()]);
     }
 
-    /*
-	public function index(Request $request){
-		return response()->json($this->cust_arr);
-      }
-      */
+
 
    /**
     * @SWG\Post(
@@ -40,14 +37,28 @@ class ClientController extends Controller
      *      summary="Add User",
      *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
      *      @SWG\Parameter(name="surname", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="yearOfBirth", in="formData", required=true, type="integer"),
+     *      @SWG\Parameter(name="yearOfBirth", in="formData", required=true, type="string"),
      *      @SWG\Response(response=200, description="Success"),
-     *      @SWG\Response(response=204, description="Created"),
+     *      @SWG\Response(response=201, description="Created"),
+     *      @SWG\Response(response=204, description="No Content"),
      * )
      */
 
 
     public function store(Request $request) {
+
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255', 'unique:clients'],
+            'surname' => ['required', 'string', 'max:255'],
+            'yearOfBirth' => 'required|date_format:Y-m-d|before:today'
+        ],
+            [
+                'name.required' => 'Enter name',
+                'surname.required' => 'Enter surname',
+                'yearOfBirth.required' => 'Enter year of birth',
+                'name.unique' => 'Name already exist',
+            ]);
+
         $client = new Client();
         $client->fill($request->all());
         $client->save();

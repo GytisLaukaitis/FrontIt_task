@@ -52,30 +52,33 @@
                 "operationId": "ApiV1saveUser",
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "Name",
                         "in": "formData",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "surname",
+                        "name": "Surname",
                         "in": "formData",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "yearOfBirth",
+                        "name": "Year of birth",
                         "in": "formData",
                         "required": true,
-                        "type": "integer"
+                        "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Success"
                     },
-                    "204": {
+                    "201": {
                         "description": "Created"
+                    },
+                    "204": {
+                        "description": "No Content"
                     }
                 }
             }
