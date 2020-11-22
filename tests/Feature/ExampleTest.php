@@ -2,11 +2,16 @@
 
 namespace Tests\Feature;
 
+use App\Client;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Resources\Json\Resource;
 
 class UserEndpointTest extends TestCase
 {
+
+    use DatabaseTransactions;
     // TC:0 no data is returned if database is empty /api/users
         // given -- nothing
         // when -- request to api/users
@@ -44,6 +49,7 @@ class UserEndpointTest extends TestCase
     public function test__create_user__given_uname_passw_birthyear__creates_new_user_w_201()
     {
         // given
+
         $data = ['name' => 'Sally', 'surname' => 'Mallsy', 'yearOfBirth' => '2020-01-01'];
 
         // when
@@ -52,6 +58,7 @@ class UserEndpointTest extends TestCase
         // then
         $response->assertStatus(201);
         $response->assertJson([]);
+
 
         // teardown
         // TODO :: call delete on this resource (by id)

@@ -64,4 +64,5 @@ class ClientController extends Controller
         $client->save();
         return response()->json($client, 201);
     }
+
 }
