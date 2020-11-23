@@ -11,8 +11,9 @@ SWAGGER_VERSION=2.0
 L5_SWAGGER_CONST_HOST=localhost:8000  
 
 4. Update project composer with: composer update
-5. Run php artisan serve
-6. In browser open localhost:8000/api/documentaion
+5. Optional(testing data): php artisan migrate:fresh --seed
+6. Run php artisan serve
+7. In browser open localhost:8000/api/documentaion
 
 ## Docker Usage
 1. docker-compose up -d

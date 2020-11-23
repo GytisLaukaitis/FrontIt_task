@@ -70,6 +70,12 @@
                     "204": {
                         "description": "No Content"
                     },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
                     "422": {
                         "description": "Unprocessable Entity"
                     },

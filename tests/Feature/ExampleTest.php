@@ -59,9 +59,6 @@ class UserEndpointTest extends TestCase
         $response->assertStatus(201);
         $response->assertJson([]);
 
-
-        // teardown
-        // TODO :: call delete on this resource (by id)
     }
 
     /**
@@ -82,5 +79,30 @@ class UserEndpointTest extends TestCase
     }
 
     // TC: 400 kai neįveda name / surname / yob
+
+    public function test__create_user__given_no_parameters__create_fails_w_status_400() {
+        // given
+        $data = [''];
+
+        // when
+        $response = $this->json('POST', '/api/clients/', $data);
+
+        // then
+        $response->assertStatus(422);
+        $response->assertJson([]);
+    }
     // TC: 403 for user generated id
+
+    public function test__create_user__given_two_same_unique_params__create_fails_w_status_422() {
+        // given
+        $data = [['name' => 'Sally','surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],
+        ['name' => 'Sally','surname' => 'Mo', 'yearOfBirth' => '1988-01-01']];
+
+        // when
+        $response = $this->json('POST', '/api/clients/', $data);
+
+        // then
+        $response->assertStatus(422);
+        $response->assertJson([]);
+    }
 }
