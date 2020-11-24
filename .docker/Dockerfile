@@ -5,8 +5,6 @@ USER root
 WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
-        iputils-ping procps \
-        vim \
         libpng-dev \
         zlib1g-dev \
         libxml2-dev \
@@ -28,9 +26,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN chown -R www-data:www-data /var/www/html \
     && a2enmod rewrite
-
-COPY . .
-
-RUN composer install
-# CMD php artisan serve --host=0.0.0.0 --port=8000
-EXPOSE 8001
