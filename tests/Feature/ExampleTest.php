@@ -80,7 +80,7 @@ class UserEndpointTest extends TestCase
 
     // TC: 400 kai neįveda name / surname / yob
 
-    public function test__create_user__given_no_parameters__create_fails_w_status_400() {
+    public function test__create_user__given_no_parameters__create_fails_w_status_422() {
         // given
         $data = [''];
 
@@ -91,6 +91,7 @@ class UserEndpointTest extends TestCase
         $response->assertStatus(422);
         $response->assertJson([]);
     }
+
     // TC: 403 for user generated id
 
     public function test__create_user__given_two_same_unique_params__create_fails_w_status_422() {

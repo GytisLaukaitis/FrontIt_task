@@ -61,10 +61,12 @@ class ClientController extends Controller
                 'name.unique' => 'Name already exist',
             ]);
 
+
         $client = new Client();
         $client->fill($request->all());
         $client->save();
         return response()->json($client, 201);
     }
+
 
 }

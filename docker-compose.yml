@@ -6,17 +6,19 @@ services:
       dockerfile: .docker/Dockerfile
     image: 'laravelapp'
     ports:
-      - 8000:80
-    volumes:
-      - ./:/var/www/html
+      - 8001:8000
+    depends_on:
+      db:
+        condition: service_started
   db:
     image: mysql:5.7
     restart: always
     ports:
-      - "3301:3301"
+      - "3301:3306"
     environment:
-      MYSQL_DATABASE: 'laraapp_db'
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_ROOT_PASSWORD: ""
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=laraapp_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=pass
     volumes:
       - ./db:/var/lib/mysql
