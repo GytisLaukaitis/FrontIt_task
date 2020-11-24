@@ -2,8 +2,8 @@
 
 ## Usage
 
-1. git clone https://github.com/GytisLaukaitis/FrontIt_task.git
-2. inside project run: composer install
+1. `git clone https://github.com/GytisLaukaitis/FrontIt_task.git`
+2. inside project run: `composer install`
 3. Create .env file using .env.example and edit these lines  
 
 
@@ -25,7 +25,7 @@ L5_SWAGGER_CONST_HOST=localhost:8000
 
 4. `php artisan key:generate`
 5. `php artisan migrate:fresh --seed`
-6. Run php artisan serve
+6. `php artisan serve`
 7. In browser open localhost:8000/api/documentaion
 
 ## Docker Usage
