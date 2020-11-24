@@ -29,7 +29,7 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test__get_all_clients__given_no_params__returns_all_client()
+    public function test_get_all_clients_given_no_params_returns_all_client()
     {
         // given
         // when
@@ -46,7 +46,7 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test__create_user__given_uname_passw_birthyear__creates_new_user_w_201()
+    public function test_create_user_given_uname_passw_birthyear_creates_new_user_w_201()
     {
         // given
 
@@ -66,7 +66,7 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test__create_user__given_no_username__create_fails_w_status_422() {
+    public function test_create_user_given_no_username_create_fails_w_status_422() {
         // given
         $data = ['surname' => 'Mally', 'yearOfBirth' => '2020-01-01'];
 
@@ -78,9 +78,9 @@ class UserEndpointTest extends TestCase
         $response->assertJson([]);
     }
 
-    // TC: 400 kai neįveda name / surname / yob
 
-    public function test__create_user__given_no_parameters__create_fails_w_status_422() {
+
+    public function test_create_user_given_no_parameters_create_fails_w_status_422() {
         // given
         $data = [''];
 
@@ -92,9 +92,9 @@ class UserEndpointTest extends TestCase
         $response->assertJson([]);
     }
 
-    // TC: 403 for user generated id
 
-    public function test__create_user__given_two_same_unique_params__create_fails_w_status_422() {
+
+    public function test_create_user_given_two_same_unique_params_create_fails_w_status_422() {
         // given
         $data = [['name' => 'Sally','surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],
         ['name' => 'Sally','surname' => 'Mo', 'yearOfBirth' => '1988-01-01']];
