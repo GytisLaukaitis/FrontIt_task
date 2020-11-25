@@ -12,16 +12,17 @@ class UserEndpointTest extends TestCase
 {
 
     use DatabaseTransactions;
+
     // TC:0 no data is returned if database is empty /api/users
-        // given -- nothing
-        // when -- request to api/users
-        // then -- assert
-        // teardown -- nothing
+    // given -- nothing
+    // when -- request to api/users
+    // then -- assert
+    // teardown -- nothing
     // TC:1 data is returned when database not empty
-        // given -- create data by calling  $response = $this->json('POST', '/api/testing/',  ... )
-        // when -- request to api/users
-        // then -- assert that one users present (the one you just created)
-        // teardown -- nothing -- delete the user that you created
+    // given -- create data by calling  $response = $this->json('POST', '/api/testing/',  ... )
+    // when -- request to api/users
+    // then -- assert that one users present (the one you just created)
+    // teardown -- nothing -- delete the user that you created
 
 
     /**
@@ -66,7 +67,8 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test_create_user_given_no_username_create_fails_w_status_422() {
+    public function test_create_user_given_no_username_create_fails_w_status_422()
+    {
         // given
         $data = ['surname' => 'Mally', 'yearOfBirth' => '2020-01-01'];
 
@@ -79,8 +81,8 @@ class UserEndpointTest extends TestCase
     }
 
 
-
-    public function test_create_user_given_no_parameters_create_fails_w_status_422() {
+    public function test_create_user_given_no_parameters_create_fails_w_status_422()
+    {
         // given
         $data = [''];
 
@@ -93,11 +95,11 @@ class UserEndpointTest extends TestCase
     }
 
 
-
-    public function test_create_user_given_two_same_unique_params_create_fails_w_status_422() {
+    public function test_create_user_given_two_same_unique_params_create_fails_w_status_422()
+    {
         // given
-        $data = [['name' => 'Sally','surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],
-        ['name' => 'Sally','surname' => 'Mo', 'yearOfBirth' => '1988-01-01']];
+        $data = [['name' => 'Sally', 'surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],
+            ['name' => 'Sally', 'surname' => 'Mo', 'yearOfBirth' => '1988-01-01']];
 
         // when
         $response = $this->json('POST', '/api/clients/', $data);

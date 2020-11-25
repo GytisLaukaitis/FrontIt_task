@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
 
-      /**
+    /**
      * @SWG\Get(
      *   path="/api/clients",
      *   summary="Get Users",
@@ -22,14 +22,14 @@ class ClientController extends Controller
      * )
      */
 
-    public function index() {
+    public function index()
+    {
         return Client::orderBy('id')->get();
     }
 
 
-
-   /**
-    * @SWG\Post(
+    /**
+     * @SWG\Post(
      *      path="/api/clients",
      *      operationId="ApiV1saveUser",
      *      summary="Add User",
@@ -47,7 +47,8 @@ class ClientController extends Controller
      */
 
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255', 'unique:clients'],
