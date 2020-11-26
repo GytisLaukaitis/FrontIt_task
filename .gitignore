@@ -35,6 +35,8 @@ composer.lock
 .idea/**/gradle.xml
 .idea/**/libraries
 
+/db/
+
 # CMake
 cmake-build-debug/
 
