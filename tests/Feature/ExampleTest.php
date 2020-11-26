@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Resources\Json\Resource;
 
-class UserEndpointTest extends TestCase
+class ExampleTest extends TestCase
 {
 
     use DatabaseTransactions;
@@ -30,15 +30,12 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test_get_all_clients_given_no_params_returns_all_client()
+    public function tests_get_all_user_given_no_params_returns_all_users_w_200()
     {
-        // given
-        // when
-        $response = $this->get('/api/clients');
 
-        // then
+        $response = $this->get('/api/clients');
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type', 'application/json'); // TODO :: pakeisti application/vnd.api+json
+        $response->assertHeader('Content-Type', 'application/json');
         $response->assertJson([]);
     }
 
@@ -47,7 +44,7 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test_create_user_given_uname_passw_birthyear_creates_new_user_w_201()
+    public function tests_create_user_given_uname_passw_birthyear_creates_new_user_w_201()
     {
         // given
 
@@ -67,7 +64,7 @@ class UserEndpointTest extends TestCase
      *
      * @return void
      */
-    public function test_create_user_given_no_username_create_fails_w_status_422()
+    public function tests_create_user_given_no_username_create_fails_w_status_422()
     {
         // given
         $data = ['surname' => 'Mally', 'yearOfBirth' => '2020-01-01'];
@@ -81,7 +78,13 @@ class UserEndpointTest extends TestCase
     }
 
 
-    public function test_create_user_given_no_parameters_create_fails_w_status_422()
+    /**
+     * Given
+     *
+     * @return void
+     */
+
+    public function tests_create_user_given_no_parameters_create_fails_w_status_422()
     {
         // given
         $data = [''];
@@ -95,7 +98,13 @@ class UserEndpointTest extends TestCase
     }
 
 
-    public function test_create_user_given_two_same_unique_params_create_fails_w_status_422()
+    /**
+     * Given
+     *
+     * @return void
+     */
+
+    public function tests_create_user_given_two_same_unique_params_create_fails_w_status_422()
     {
         // given
         $data = [['name' => 'Sally', 'surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],
