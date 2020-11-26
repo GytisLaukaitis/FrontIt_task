@@ -1,6 +1,6 @@
 
 
-## Usage
+## Docker Usage
 
 1. `git clone https://github.com/GytisLaukaitis/FrontIt_task.git`
 2. `cp .env.example .env`  and edit these lines:
@@ -21,13 +21,11 @@ L5_SWAGGER_GENERATE_ALWAYS=true
 L5_SWAGGER_CONST_HOST=localhost:8001   
 ```  
 
-
-## Docker Usage
-1. `docker-compose up -d`
-2. `docker ps` shows your app cointainer id
-3. `docker exec -it (container id) bash` & `composer install`
-4. `php artisan migrate:fresh --seed`
-5. `php artisan key:generate`
-6. In browser open localhost:8001/api/documentaion
+3. `docker-compose up -d`
+4. `docker ps` shows your app cointainer id
+5. `docker exec -it (container id) bash` & `composer install`
+6. `php artisan migrate:fresh --seed`
+7. `php artisan key:generate`
+8. In browser open localhost:8001/api/documentaion
 
 
