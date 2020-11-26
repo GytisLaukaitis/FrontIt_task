@@ -18,7 +18,7 @@ and at the bottom of .env
 
 ```bash
 L5_SWAGGER_GENERATE_ALWAYS=true  
-L5_SWAGGER_CONST_HOST=localhost:8000   
+L5_SWAGGER_CONST_HOST=localhost:8001   
 ```  
 
 
