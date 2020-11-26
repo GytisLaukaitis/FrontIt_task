@@ -18,8 +18,7 @@ and at the bottom of .env
 
 ```bash
 L5_SWAGGER_GENERATE_ALWAYS=true  
-SWAGGER_VERSION=2.0  
-L5_SWAGGER_CONST_HOST=localhost:8000  
+L5_SWAGGER_CONST_HOST=localhost:8000   
 ```  
 
 
@@ -29,6 +28,6 @@ L5_SWAGGER_CONST_HOST=localhost:8000
 3. `docker exec -it (container id) bash` & `composer install`
 4. `php artisan migrate:fresh --seed`
 5. `php artisan key:generate`
-6. In browser open localhost:8000/api/documentaion
+6. In browser open localhost:8001/api/documentaion
 
 
