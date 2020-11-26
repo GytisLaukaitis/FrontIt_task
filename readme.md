@@ -3,7 +3,7 @@
 ## Usage
 
 1. `git clone https://github.com/GytisLaukaitis/FrontIt_task.git`
-2. Create .env file using .env.example and edit these lines  
+2. `cp .env.example .env`  and edit these lines:
 
 
 ```bash
