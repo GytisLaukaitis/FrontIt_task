@@ -15,7 +15,7 @@
         "https"
     ],
     "paths": {
-        "/api/clients": {
+        "/clients": {
             "get": {
                 "summary": "Get Users",
                 "operationId": "testing",

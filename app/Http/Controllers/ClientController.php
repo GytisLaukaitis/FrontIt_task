@@ -11,7 +11,7 @@ class ClientController extends Controller
 
     /**
      * @SWG\Get(
-     *   path="/api/clients",
+     *   path="/clients",
      *   summary="Get Users",
      *   operationId="testing",
      *   @SWG\Response(response=200, description="successful operation"),
@@ -30,7 +30,7 @@ class ClientController extends Controller
 
     /**
      * @SWG\Post(
-     *      path="/api/clients",
+     *      path="/clients",
      *      operationId="ApiV1saveUser",
      *      summary="Add User",
      *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
