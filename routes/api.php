@@ -1,5 +1,6 @@
 <?php
 
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -17,6 +18,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+
+
 });
 
 Route::get('/clients', 'ClientController@index');

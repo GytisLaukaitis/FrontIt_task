@@ -10,6 +10,7 @@
 5. `composer install`
 6. `php artisan migrate:fresh --seed`
 7. `php artisan key:generate`
-8. In browser open localhost:8001/api/documentaion
+8. `php artisan serve`
+9.  [localhost:8001/api/documentation](localhost:8001/api/documentation)
 
 
