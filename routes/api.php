@@ -22,8 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
-Route::get('/clients', 'ClientController@index');
-Route::post('/clients', 'ClientController@store');
+//Route::get('/clients', 'ClientController@index');
+//Route::post('/clients', 'ClientController@store');
 
 JsonApi::register('default')->withNamespace('ApiControllers')->routes(function ($api) {
     $api->resource('clients')->controller('ClientController');
