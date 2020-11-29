@@ -2,10 +2,12 @@
 
 
 namespace App\Http\Controllers\ApiControllers;
+
 use CloudCreativity\LaravelJsonApi\Http\Controllers\JsonApiController;
 use CloudCreativity\LaravelJsonApi\Contracts\Store\StoreInterface;
 use CloudCreativity\LaravelJsonApi\Http\Requests\FetchResources;
 use CloudCreativity\LaravelJsonApi\Http\Requests\CreateResource;
+use Swagger\Annotations as SWG;
 
 class ClientController extends JsonApiController
 {
@@ -28,7 +30,7 @@ class ClientController extends JsonApiController
         if ($this->isResponse($result)) {
             return $result;
         }
-        // https://laravel.com/docs/8.x/collections#method-sortbydesc
+
         return $this->reply()->content($result->sortBy('id'));
     }
 
@@ -53,7 +55,6 @@ class ClientController extends JsonApiController
      *              ),
      *          ),
      *      ),
-     *      @SWG\Response(response=200, description="Success"),
      *      @SWG\Response(response=201, description="Created"),
      *      @SWG\Response(response=204, description="No Content"),
      *      @SWG\Response(response=400, description="Bad request"),
@@ -64,6 +65,8 @@ class ClientController extends JsonApiController
      */
     public function create(StoreInterface $store, CreateResource $request)
     {
+
+
         $record = $this->transaction(function () use ($store, $request) {
             return $this->doCreate($store, $request);
         });
