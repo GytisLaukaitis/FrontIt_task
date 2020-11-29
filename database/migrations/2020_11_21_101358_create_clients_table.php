@@ -19,7 +19,7 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 64);
             $table->string('surname', 64);
-            $table->date('yearOfBirth', '10-16-2003')->format('Y-m-d');
+            $table->date('yearofbirth');
             $table->timestamps();
         });
     }

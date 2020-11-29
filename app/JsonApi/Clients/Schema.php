@@ -32,7 +32,7 @@ class Schema extends SchemaProvider
         return [
             'name' => $resource->name,
             'surname' => $resource->surname,
-            'yearOfBirth'=> $resource->yearOfBirth,
+            'yearofbirth'=> $resource->yearofbirth,
             'created-at' => $resource->created_at->toAtomString(),
             'updated-at' => $resource->updated_at->toAtomString(),
         ];

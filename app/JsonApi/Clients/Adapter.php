@@ -2,6 +2,7 @@
 
 namespace App\JsonApi\Clients;
 
+use App\Client;
 use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use CloudCreativity\LaravelJsonApi\Pagination\StandardStrategy;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,7 +32,7 @@ class Adapter extends AbstractAdapter
      */
     public function __construct(StandardStrategy $paging)
     {
-        parent::__construct(new \App\Client(), $paging);
+        parent::__construct(new Client(), $paging);
     }
 
     /**

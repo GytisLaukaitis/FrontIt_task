@@ -15,10 +15,13 @@
         "https"
     ],
     "paths": {
-        "/clients": {
+        "/api/v1/clients": {
             "get": {
-                "summary": "Get Users",
-                "operationId": "testing",
+                "summary": "Get Clients",
+                "operationId": "Get clients fuckery",
+                "produces": [
+                    "application/vnd.api+json"
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -38,25 +41,54 @@
                 }
             },
             "post": {
-                "summary": "Add User",
-                "operationId": "ApiV1saveUser",
+                "summary": "Add Clients",
+                "operationId": "createClient",
+                "consumes": [
+                    "application/vnd.api+json"
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
+                        "parameter": "clients",
+                        "name": "clients",
+                        "in": "body",
+                        "description": "Single client fields",
                         "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "surname",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "yearOfBirth",
-                        "in": "formData",
-                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "data": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "attributes": {
+                                            "properties": {
+                                                "name": {
+                                                    "description": "name",
+                                                    "type": "string"
+                                                },
+                                                "surname": {
+                                                    "description": "surname",
+                                                    "type": "string"
+                                                },
+                                                "yearofbirth": {
+                                                    "description": "year of birth",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "relationships": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
                         "type": "string"
                     }
                 ],
