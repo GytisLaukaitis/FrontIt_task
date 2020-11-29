@@ -47,7 +47,7 @@ class ClientController extends JsonApiController
      *              @SWG\Property(type="object",property="data",
      *                  @SWG\Property(property="type",type="string"),
      *                  @SWG\Property(property="attributes",type="object",
-     *                      @SWG\Property(type="string",property="name",description="name"),
+     *                      @SWG\Property(type="string",property="name",description="name",minimum="2",maximum="2"),
      *                      @SWG\Property(type="string",property="surname",description="surname"),
      *                      @SWG\Property(type="string",property="yearofbirth",description="year of birth")
      *                  ),

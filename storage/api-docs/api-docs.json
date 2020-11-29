@@ -67,7 +67,9 @@
                                             "properties": {
                                                 "name": {
                                                     "description": "name",
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "maximum": "2",
+                                                    "minimum": "2"
                                                 },
                                                 "surname": {
                                                     "description": "surname",
