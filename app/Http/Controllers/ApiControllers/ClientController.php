@@ -15,7 +15,7 @@ class ClientController extends JsonApiController
      * @SWG\Get(
      *   path="/api/v1/clients",
      *   summary="Get Clients",
-     *   operationId="Get cliens",
+     *   operationId="Get clients",
      *   produces={"application/vnd.api+json"},
      *   @SWG\Response(response=200, description="successful operation"),
      *   @SWG\Response(response=403, description="forbidden"),

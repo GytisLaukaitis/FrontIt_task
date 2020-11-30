@@ -33,11 +33,12 @@ class ExampleTest extends TestCase
     public function testGetAllClientsGivenNoParamsReturnsAllClientsW200()
     {
 
-        $response = $this->get('/api/clients');
+        $response = $this->get('/clients');
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'application/json');
         $response->assertJson([]);
     }
+
 
     /**
      * Given
@@ -48,13 +49,14 @@ class ExampleTest extends TestCase
     {
         // given
 
-        $data = ['name' => 'Sally', 'surname' => 'Mallsy', 'yearOfBirth' => '2020-01-01'];
+        $data = ['name' => 'Sally', 'surname' => 'Mallsy', 'yearofbirth' => '2020-01-01'];
 
         // when
-        $response = $this->json('POST', '/api/clients/', $data);
+        $response = $this->json('POST', '/clients', $data);
 
         // then
         $response->assertStatus(201);
+        $response->assertHeader('Content-Type', 'application/json');
         $response->assertJson([]);
 
     }
@@ -64,16 +66,17 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testCreateClientGivenNoUsernameCreateFailsWStatus422()
+    public function testCreateClientGivenNoUsernameCreateFailsWStatus500()
     {
         // given
-        $data = ['surname' => 'Mally', 'yearOfBirth' => '2020-01-01'];
+        $data = ['surname' => 'Mally', 'yearofbirth' => '2020-01-01'];
 
         // when
-        $response = $this->json('POST', '/api/clients/', $data);
+        $response = $this->json('POST', '/clients', $data);
 
         // then
-        $response->assertStatus(422);
+        $response->assertStatus(500);
+        $response->assertHeader('Content-Type', 'application/json');
         $response->assertJson([]);
     }
 
@@ -84,16 +87,17 @@ class ExampleTest extends TestCase
      * @return void
      */
 
-    public function testCreateClientGivenNoParametersCreateFailsWStatus422()
+    public function testCreateClientGivenNoParametersCreateFailsWStatus500()
     {
         // given
         $data = [''];
 
         // when
-        $response = $this->json('POST', '/api/clients/', $data);
+        $response = $this->json('POST', '/clients', $data);
 
         // then
-        $response->assertStatus(422);
+        $response->assertStatus(500);
+        $response->assertHeader('Content-Type', 'application/json');
         $response->assertJson([]);
     }
 
@@ -104,17 +108,18 @@ class ExampleTest extends TestCase
      * @return void
      */
 
-    public function testCreateUserGivenTwoSameUniqueParamsCreateFailsWStatus422()
+    public function testCreateUserGivenTwoSameUniqueParamsCreateFailsWStatus500()
     {
         // given
         $data = [['name' => 'Sally', 'surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],
-            ['name' => 'Sally', 'surname' => 'Mo', 'yearOfBirth' => '1988-01-01']];
+            ['name' => 'Sally', 'surname' => 'Mo', 'yearofbirth' => '1988-01-01']];
 
         // when
-        $response = $this->json('POST', '/api/clients/', $data);
+        $response = $this->json('POST', '/clients', $data);
 
         // then
-        $response->assertStatus(422);
+        $response->assertStatus(500);
+        $response->assertHeader('Content-Type', 'application/json');
         $response->assertJson([]);
     }
 }

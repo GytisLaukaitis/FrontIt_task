@@ -10,6 +10,8 @@
 5. `composer install`
 6. `php artisan migrate:fresh --seed`
 7. `php artisan key:generate`
-8.  [localhost:8001/api/documentation](http://localhost:8001/api/documentation)
+8.  Run tests inside docker container  
+    `vendor/bin/phpunit --configuration phpunit.xml`
+9.  [localhost:8001/api/documentation](http://localhost:8001/api/documentation)
 
 
