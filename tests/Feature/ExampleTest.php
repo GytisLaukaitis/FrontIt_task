@@ -30,7 +30,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function tests_get_all_user_given_no_params_returns_all_users_w_200()
+    public function testGetAllClientsGivenNoParamsReturnsAllClientsW200()
     {
 
         $response = $this->get('/api/clients');
@@ -44,7 +44,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function tests_create_user_given_uname_passw_birthyear_creates_new_user_w_201()
+    public function testCreateClientGivenUsernamePasswordBirthYearCreatesNewClientW201()
     {
         // given
 
@@ -64,7 +64,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function tests_create_user_given_no_username_create_fails_w_status_422()
+    public function testCreateClientGivenNoUsernameCreateFailsWStatus422()
     {
         // given
         $data = ['surname' => 'Mally', 'yearOfBirth' => '2020-01-01'];
@@ -84,7 +84,7 @@ class ExampleTest extends TestCase
      * @return void
      */
 
-    public function tests_create_user_given_no_parameters_create_fails_w_status_422()
+    public function testCreateClientGivenNoParametersCreateFailsWStatus422()
     {
         // given
         $data = [''];
@@ -104,7 +104,7 @@ class ExampleTest extends TestCase
      * @return void
      */
 
-    public function tests_create_user_given_two_same_unique_params_create_fails_w_status_422()
+    public function testCreateUserGivenTwoSameUniqueParamsCreateFailsWStatus422()
     {
         // given
         $data = [['name' => 'Sally', 'surname' => 'Mally', 'yearOfBirth' => '2020-01-01'],

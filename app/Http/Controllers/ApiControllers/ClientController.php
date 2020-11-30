@@ -15,7 +15,7 @@ class ClientController extends JsonApiController
      * @SWG\Get(
      *   path="/api/v1/clients",
      *   summary="Get Clients",
-     *   operationId="Get clients fuckery",
+     *   operationId="Get cliens",
      *   produces={"application/vnd.api+json"},
      *   @SWG\Response(response=200, description="successful operation"),
      *   @SWG\Response(response=403, description="forbidden"),
@@ -45,11 +45,11 @@ class ClientController extends JsonApiController
      *      @SWG\Parameter(parameter="clients",name="clients",in="body",required=true,type="string",description="Single client fields",
      *          @SWG\Schema(type="object",
      *              @SWG\Property(type="object",property="data",
-     *                  @SWG\Property(property="type",type="string"),
+     *                  @SWG\Property(property="type",type="string",example="clients"),
      *                  @SWG\Property(property="attributes",type="object",
-     *                      @SWG\Property(type="string",property="name",description="name",minimum="2",maximum="2"),
-     *                      @SWG\Property(type="string",property="surname",description="surname"),
-     *                      @SWG\Property(type="string",property="yearofbirth",description="year of birth")
+     *                      @SWG\Property(type="string",property="name",description="name",example="Vardas"),
+     *                      @SWG\Property(type="string",property="surname",description="surname",example="Pavarde"),
+     *                      @SWG\Property(type="string",property="yearofbirth",description="year of birth",example="2000-01-01")
      *                  ),
      *                  @SWG\Property(property="relationships",type="object"),
      *              ),

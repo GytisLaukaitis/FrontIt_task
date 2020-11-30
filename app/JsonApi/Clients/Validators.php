@@ -56,7 +56,7 @@ class Validators extends AbstractValidators
     protected function queryRules(): array
     {
         return [
-            //
+            'filter.name' => 'exists:clients',
         ];
     }
 
