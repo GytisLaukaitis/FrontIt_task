@@ -57,6 +57,7 @@ class Validators extends AbstractValidators
     {
         return [
             'filter.name' => 'exists:clients',
+            'filter.surname' => 'exists.clients'
         ];
     }
 
