@@ -12,6 +12,6 @@
 7. `php artisan key:generate`
 8.  Run tests inside docker container  
     `vendor/bin/phpunit --configuration phpunit.xml`
-9.  [localhost:8001/api/documentation](http://localhost:8001/api/documentation)
+9.  Open [localhost:8001/api/documentation](http://localhost:8001/api/documentation)
 
 
