@@ -2,7 +2,8 @@
 
 ## Docker Usage
 
-1. `git clone https://github.com/GytisLaukaitis/FrontIt_task.git`
+1. `git clone https://github.com/GytisLaukaitis/FrontIt_task.git`  
+     Inside project run:
 2. `cp .env.example .env` 
 3. `docker-compose up -d`
 4. `docker exec -it frontit_task_app_1 bash`  
